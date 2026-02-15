@@ -1,0 +1,8 @@
+{
+  "name": "The SHER - Study Abroad Consultancy",
+  "description": "A high-converting, qualification-focused web application for The Scholars Higher Education Route (The SHER), designed to guide Indian students to top global universities.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
