@@ -5,57 +5,78 @@ import {
   CheckCircle, 
   ChevronDown, 
   ChevronUp, 
-  Globe, 
-  GraduationCap, 
   ShieldCheck, 
-  Award, 
-  Users, 
   Clock, 
   MessageCircle,
   Phone,
-  Mail,
   Menu,
-  X
+  X,
+  GraduationCap,
+  TrendingUp,
+  Database,
+  Sparkles
 } from 'lucide-react';
-import { SUCCESS_STORIES, FAQS, COUNTRIES, QUALIFICATIONS, TEST_STATUS, BUDGET_RANGES, FUNDING_SOURCES } from './constants';
-import { SuccessStory, FormData, FAQItem } from './types';
+import { SUCCESS_STORIES, FAQS } from './constants';
 
 // Components
 const Hero = ({ onCtaClick }: { onCtaClick: () => void }) => (
-  <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-slate-900 text-white">
-    <div className="absolute inset-0 z-0 opacity-20">
-      <img src="https://picsum.photos/seed/campus/1920/1080" alt="Background" className="w-full h-full object-cover" />
+  <section className="relative pt-32 pb-20 md:pt-48 md:pb-44 overflow-hidden bg-slate-900 text-white">
+    {/* Background Image Layer: Featuring King's College Cambridge */}
+    <div className="absolute inset-0 z-0">
+      <img 
+        src="https://images.unsplash.com/photo-1543185377-b75671bc8741?auto=format&fit=crop&q=80&w=2000" 
+        alt="King's College Cambridge" 
+        className="w-full h-full object-cover object-[center_35%] scale-105"
+      />
+      
+      {/* Blending Overlay: Multi-layer gradient for sophisticated blending */}
+      {/* 1. Deep blue tint for brand identity */}
+      <div className="absolute inset-0 bg-blue-900/40 mix-blend-multiply"></div>
+      {/* 2. Top-down fade for navbar integration */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-transparent to-slate-900/60"></div>
+      {/* 3. Radial focus to highlight center text while keeping architecture details */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(30,58,138,0.7)_0%,_rgba(15,23,42,0.9)_100%)] opacity-80"></div>
     </div>
+
     <div className="container mx-auto px-6 relative z-10">
       <div className="max-w-4xl mx-auto text-center">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 backdrop-blur-md rounded-full text-blue-300 font-bold text-sm mb-8 border border-blue-500/30">
+          <Award className="w-4 h-4" /> OFFICIAL ADMISSIONS PARTNER
+        </div>
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight drop-shadow-sm">
           Get Accepted to <span className="text-blue-400">Top Global Universities</span> with Structured Guidance
         </h1>
-        <p className="text-lg md:text-2xl text-slate-300 mb-10 max-w-2xl mx-auto">
+        <p className="text-lg md:text-2xl text-slate-100 mb-10 max-w-2xl mx-auto drop-shadow-sm font-medium">
           We provide the roadmap for your international career. From profile strengthening to visa approvals, The SHER is your trusted route to UK, Canada, USA, and Europe.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <button 
             onClick={onCtaClick}
-            className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white text-lg font-bold rounded-xl transition-all shadow-lg hover:shadow-blue-500/25 flex items-center justify-center gap-2 group"
+            className="w-full sm:w-auto px-10 py-5 bg-blue-600 hover:bg-blue-500 text-white text-lg font-bold rounded-2xl transition-all shadow-xl hover:shadow-blue-500/40 flex items-center justify-center gap-2 group"
           >
             Check My Eligibility <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
           <button 
             onClick={onCtaClick}
-            className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white text-lg font-bold rounded-xl transition-all backdrop-blur-sm border border-white/20"
+            className="w-full sm:w-auto px-10 py-5 bg-white/10 hover:bg-white/20 text-white text-lg font-bold rounded-2xl transition-all backdrop-blur-md border border-white/20"
           >
-            Book Free Profile Evaluation
+            Book Profile Evaluation
           </button>
         </div>
-        <div className="mt-12 flex flex-wrap justify-center gap-6 opacity-70">
-          <div className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-blue-400" /> <span>Visa Support</span></div>
-          <div className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-blue-400" /> <span>University Selection</span></div>
-          <div className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-blue-400" /> <span>SOP Assistance</span></div>
+        <div className="mt-14 flex flex-wrap justify-center gap-6 opacity-90">
+          <div className="flex items-center gap-2 font-semibold text-white bg-slate-900/40 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/10"><CheckCircle className="w-5 h-5 text-blue-400" /> <span>Visa Support</span></div>
+          <div className="flex items-center gap-2 font-semibold text-white bg-slate-900/40 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/10"><CheckCircle className="w-5 h-5 text-blue-400" /> <span>University Selection</span></div>
+          <div className="flex items-center gap-2 font-semibold text-white bg-slate-900/40 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/10"><CheckCircle className="w-5 h-5 text-blue-400" /> <span>SOP Assistance</span></div>
         </div>
       </div>
     </div>
   </section>
+);
+
+const Award = ({ className }: { className?: string }) => (
+  <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+  </svg>
 );
 
 const AuthorityBar = () => (
@@ -67,264 +88,89 @@ const AuthorityBar = () => (
           <p className="text-sm text-slate-500 font-medium">Students Guided</p>
         </div>
         <div className="h-10 w-px bg-slate-200 hidden md:block"></div>
-        <div className="flex flex-wrap items-center justify-center gap-8 grayscale opacity-60">
-          <span className="font-bold text-slate-400">BRITISH COUNCIL</span>
-          <span className="font-bold text-slate-400">ETS TOEFL</span>
-          <span className="font-bold text-slate-400">PEARSON PTE</span>
-          <span className="font-bold text-slate-400">ICEF CERTIFIED</span>
+        <div className="flex flex-wrap items-center justify-center gap-8 grayscale opacity-60 font-black tracking-tighter text-slate-400">
+          <span>BRITISH COUNCIL</span>
+          <span>ETS TOEFL</span>
+          <span>PEARSON PTE</span>
+          <span>ICEF CERTIFIED</span>
         </div>
       </div>
     </div>
   </section>
 );
 
-const PainSection = () => {
-  const pains = [
-    { title: "Confusion about eligibility", desc: "Not sure if your GPA or background fits your dream university?", icon: <GraduationCap className="w-8 h-8" /> },
-    { title: "IELTS/GRE Uncertainty", desc: "Worried about scores or need help with test waivers?", icon: <Clock className="w-8 h-8" /> },
-    { title: "Budget Planning Stress", desc: "Confused about tuition fees, living costs, and funding options?", icon: <Globe className="w-8 h-8" /> },
-    { title: "Fear of Visa Rejection", desc: "Don't want to risk your future on a documentation error?", icon: <ShieldCheck className="w-8 h-8" /> },
-  ];
+const TallyForm = () => {
+  useEffect(() => {
+    if (typeof (window as any).Tally !== 'undefined') {
+      (window as any).Tally.loadEmbeds();
+    }
+  }, []);
 
   return (
-    <section className="py-24 bg-slate-50">
-      <div className="container mx-auto px-6">
-        <div className="max-w-3xl mb-16">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Study Abroad is Complex. <span className="text-blue-600">The Route Doesn't Have to Be.</span></h2>
-          <p className="text-lg text-slate-600">Many students delay their dreams because they're overwhelmed by choices or fear rejection. We fix that.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {pains.map((pain, idx) => (
-            <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-all border border-slate-100">
-              <div className="text-blue-600 mb-6 bg-blue-50 w-16 h-16 flex items-center justify-center rounded-xl">{pain.icon}</div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{pain.title}</h3>
-              <p className="text-slate-600 leading-relaxed">{pain.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <div id="evaluation-form" className="bg-white p-4 md:p-8 rounded-3xl shadow-2xl border border-slate-100 max-w-2xl mx-auto -mt-24 relative z-20 min-h-[400px]">
+      <iframe 
+        data-tally-src="https://tally.so/embed/xXpdXv?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+        loading="lazy" 
+        width="100%" 
+        height="174" 
+        frameBorder="0" 
+        marginHeight={0} 
+        marginWidth={0} 
+        title="CHECK YOUR ELIGIBILITY"
+        className="w-full"
+      ></iframe>
+    </div>
   );
 };
 
-const SuccessStories = () => (
-  <section className="py-24 bg-white overflow-hidden">
-    <div className="container mx-auto px-6">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Success Stories That Speak for Themselves</h2>
-        <p className="text-lg text-slate-600 max-w-2xl mx-auto">From small towns to global metropolises, we've helped Indian students reach the world's most prestigious institutions.</p>
+const SuccessModal = ({ onClose }: { onClose: () => void }) => (
+  <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 bg-slate-900/90 backdrop-blur-sm animate-in fade-in duration-300">
+    <div className="bg-white rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 max-w-xl w-full shadow-2xl animate-in zoom-in duration-300 relative text-center">
+      <button onClick={onClose} className="absolute top-6 right-6 p-2 text-slate-400 hover:text-slate-600 transition-colors">
+        <X className="w-6 h-6" />
+      </button>
+
+      <div className="mb-8">
+        <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-6">
+          <Sparkles className="w-10 h-10 text-green-600" />
+        </div>
+        <h2 className="text-3xl font-black text-slate-900 mb-4">Submission Successful!</h2>
+        <p className="text-lg text-slate-600 leading-relaxed">
+          Thank you for sharing your details. Our admissions experts are now reviewing your profile to find your best study route.
+        </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {SUCCESS_STORIES.map((story) => (
-          <div key={story.id} className="group relative bg-slate-900 rounded-3xl overflow-hidden aspect-[4/5] shadow-xl">
-            <img src={story.imageUrl} alt={story.name} className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500" />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
-            <div className="absolute bottom-0 left-0 p-8 w-full">
-              <p className="text-blue-400 font-bold mb-1">{story.degree}</p>
-              <h3 className="text-2xl font-bold text-white mb-1">{story.name}</h3>
-              <p className="text-slate-300">{story.university}, {story.country}</p>
-            </div>
-          </div>
-        ))}
+
+      <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 mb-8">
+        <h4 className="font-bold text-blue-900 mb-2 flex items-center justify-center gap-2">
+          <Clock className="w-4 h-4" /> Next Steps
+        </h4>
+        <p className="text-blue-800 text-sm">
+          A counselor will contact you within 24 hours. For faster processing, you can reach out directly via WhatsApp.
+        </p>
+      </div>
+
+      <div className="space-y-4">
+        <a 
+          href={`https://wa.me/911234567890?text=Hi, I just submitted my eligibility form on The SHER website. I'd like to discuss my study abroad options.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-3 w-full py-5 bg-[#25D366] text-white font-bold rounded-2xl hover:bg-[#128C7E] transition-all shadow-lg hover:shadow-[#25D366]/20"
+        >
+          <MessageCircle className="w-6 h-6" /> Connect with Mukul on WhatsApp
+        </a>
+        <div className="flex items-center justify-center gap-2 text-slate-400 text-sm">
+          <Database className="w-4 h-4" /> <span>Lead successfully synced to admissions desk</span>
+        </div>
+        <button 
+          onClick={onClose}
+          className="w-full py-4 text-slate-400 font-bold hover:text-slate-600 transition-colors"
+        >
+          Return to Homepage
+        </button>
       </div>
     </div>
-  </section>
+  </div>
 );
-
-const HowItWorks = () => {
-  const steps = [
-    { num: "01", title: "Free Profile Evaluation", desc: "Detailed analysis of your academics, work exp, and goals." },
-    { num: "02", title: "University Shortlisting", desc: "Curating a list of reach, target, and safety universities." },
-    { num: "03", title: "SOP + Application Support", desc: "Professional drafting and error-free submission guidance." },
-    { num: "04", title: "Visa + Loan Assistance", desc: "Complete documentation and mock interviews for 100% confidence." },
-  ];
-
-  return (
-    <section className="py-24 bg-blue-900 text-white">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">A 4-Step Clarity Model</h2>
-          <p className="text-blue-200 text-lg">We simplify your journey into a logical, stress-free pathway.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative">
-          <div className="hidden lg:block absolute top-1/2 left-0 w-full h-px bg-blue-700/50 -translate-y-1/2 z-0"></div>
-          {steps.map((step, idx) => (
-            <div key={idx} className="relative z-10 flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-2xl font-black mb-6 shadow-xl ring-8 ring-blue-900/50">{step.num}</div>
-              <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-              <p className="text-blue-200 leading-relaxed">{step.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const MultiStepForm = ({ onComplete }: { onComplete: () => void }) => {
-  const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState<Partial<FormData>>({});
-
-  const nextStep = () => setStep(s => s + 1);
-  const prevStep = () => setStep(s => s - 1);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Simulate API call
-    onComplete();
-  };
-
-  const updateForm = (key: keyof FormData, value: string) => {
-    setFormData(prev => ({ ...prev, [key]: value }));
-  };
-
-  return (
-    <div id="evaluation-form" className="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-slate-100 max-w-2xl mx-auto -mt-24 relative z-20">
-      <div className="mb-8 flex justify-between items-center">
-        {[1, 2, 3, 4].map(num => (
-          <div key={num} className={`w-1/4 h-2 rounded-full mx-1 ${step >= num ? 'bg-blue-600' : 'bg-slate-200'}`}></div>
-        ))}
-      </div>
-
-      <form onSubmit={handleSubmit}>
-        {step === 1 && (
-          <div className="space-y-6 animate-in fade-in duration-500">
-            <h3 className="text-2xl font-bold text-slate-900 mb-6">Step 1: Academic Background</h3>
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Current Qualification</label>
-              <select 
-                className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-                onChange={(e) => updateForm('currentQualification', e.target.value)}
-                required
-              >
-                <option value="">Select Qualification</option>
-                {QUALIFICATIONS.map(q => <option key={q} value={q}>{q}</option>)}
-              </select>
-            </div>
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">GPA / Percentage Range</label>
-              <input 
-                type="text" 
-                placeholder="e.g. 7.5 CGPA or 85%" 
-                className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-                onChange={(e) => updateForm('gpa', e.target.value)}
-                required
-              />
-            </div>
-            <button type="button" onClick={nextStep} className="w-full py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20">Next Step</button>
-          </div>
-        )}
-
-        {step === 2 && (
-          <div className="space-y-6 animate-in fade-in duration-500">
-            <h3 className="text-2xl font-bold text-slate-900 mb-6">Step 2: Your Preferences</h3>
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Preferred Country</label>
-              <select 
-                className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-                onChange={(e) => updateForm('preferredCountry', e.target.value)}
-                required
-              >
-                <option value="">Select Country</option>
-                {COUNTRIES.map(c => <option key={c} value={c}>{c}</option>)}
-              </select>
-            </div>
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Intake Year</label>
-              <select 
-                className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-                onChange={(e) => updateForm('intake', e.target.value)}
-                required
-              >
-                <option value="">Select Intake</option>
-                <option>Sept 2025</option>
-                <option>Jan/Feb 2026</option>
-                <option>Later</option>
-              </select>
-            </div>
-            <div className="flex gap-4">
-              <button type="button" onClick={prevStep} className="w-1/3 py-4 bg-slate-100 text-slate-700 font-bold rounded-xl hover:bg-slate-200 transition-colors">Back</button>
-              <button type="button" onClick={nextStep} className="w-2/3 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20">Next Step</button>
-            </div>
-          </div>
-        )}
-
-        {step === 3 && (
-          <div className="space-y-6 animate-in fade-in duration-500">
-            <h3 className="text-2xl font-bold text-slate-900 mb-6">Step 3: Readiness & Budget</h3>
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">IELTS/GRE Status</label>
-              <select 
-                className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-                onChange={(e) => updateForm('testStatus', e.target.value)}
-                required
-              >
-                <option value="">Select Status</option>
-                {TEST_STATUS.map(s => <option key={s} value={s}>{s}</option>)}
-              </select>
-            </div>
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Annual Budget Range</label>
-              <select 
-                className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-                onChange={(e) => updateForm('budget', e.target.value)}
-                required
-              >
-                <option value="">Select Budget</option>
-                {BUDGET_RANGES.map(b => <option key={b} value={b}>{b}</option>)}
-              </select>
-            </div>
-            <div className="flex gap-4">
-              <button type="button" onClick={prevStep} className="w-1/3 py-4 bg-slate-100 text-slate-700 font-bold rounded-xl hover:bg-slate-200 transition-colors">Back</button>
-              <button type="button" onClick={nextStep} className="w-2/3 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20">Next Step</button>
-            </div>
-          </div>
-        )}
-
-        {step === 4 && (
-          <div className="space-y-6 animate-in fade-in duration-500">
-            <h3 className="text-2xl font-bold text-slate-900 mb-6">Step 4: Contact Details</h3>
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Full Name</label>
-              <input 
-                type="text" 
-                placeholder="Enter your name"
-                className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-                onChange={(e) => updateForm('name', e.target.value)}
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Phone Number</label>
-              <input 
-                type="tel" 
-                placeholder="+91"
-                className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-                onChange={(e) => updateForm('phone', e.target.value)}
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Email Address</label>
-              <input 
-                type="email" 
-                placeholder="name@email.com"
-                className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-                onChange={(e) => updateForm('email', e.target.value)}
-                required
-              />
-            </div>
-            <div className="flex gap-4">
-              <button type="button" onClick={prevStep} className="w-1/3 py-4 bg-slate-100 text-slate-700 font-bold rounded-xl hover:bg-slate-200 transition-colors">Back</button>
-              <button type="submit" className="w-2/3 py-4 bg-green-600 text-white font-bold rounded-xl hover:bg-green-700 transition-colors shadow-lg shadow-green-600/20">Get My Profile Reviewed</button>
-            </div>
-            <p className="text-xs text-center text-slate-400">By submitting, you agree to our privacy policy and consent to being contacted regarding your application.</p>
-          </div>
-        )}
-      </form>
-    </div>
-  );
-};
 
 const WhyChooseSher = () => {
   const features = [
@@ -359,7 +205,7 @@ const WhyChooseSher = () => {
 };
 
 const FounderSection = () => (
-  <section className="py-24 bg-white border-y border-slate-100">
+  <section className="py-24 bg-white border-y border-slate-100" id="founder">
     <div className="container mx-auto px-6">
       <div className="flex flex-col md:flex-row items-center gap-16 max-w-6xl mx-auto">
         <div className="w-full md:w-2/5">
@@ -367,7 +213,7 @@ const FounderSection = () => (
             <div className="absolute -top-4 -left-4 w-24 h-24 bg-blue-600 rounded-2xl -z-10"></div>
             <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-slate-200 rounded-full -z-10"></div>
             <img 
-              src="https://picsum.photos/seed/founder/800/800" 
+              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" 
               alt="Mukul Sarang" 
               className="rounded-3xl shadow-2xl w-full"
             />
@@ -437,7 +283,7 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white" id="faq">
       <div className="container mx-auto px-6 max-w-4xl">
         <h2 className="text-3xl font-extrabold text-center text-slate-900 mb-16">Frequently Asked Questions</h2>
         <div className="space-y-4">
@@ -499,9 +345,9 @@ const Footer = () => (
           <h4 className="text-white font-bold mb-6">Quick Links</h4>
           <ul className="space-y-4">
             <li><a href="#" className="hover:text-blue-400 transition-colors">Process</a></li>
-            <li><a href="#" className="hover:text-blue-400 transition-colors">Success Stories</a></li>
-            <li><a href="#" className="hover:text-blue-400 transition-colors">Our Founder</a></li>
-            <li><a href="#" className="hover:text-blue-400 transition-colors">Contact Us</a></li>
+            <li><a href="#reviews" className="hover:text-blue-400 transition-colors">Success Stories</a></li>
+            <li><a href="#founder" className="hover:text-blue-400 transition-colors">Our Founder</a></li>
+            <li><a href="#faq" className="hover:text-blue-400 transition-colors">FAQ</a></li>
           </ul>
         </div>
         <div>
@@ -542,8 +388,8 @@ const Navbar = ({ onCtaClick }: { onCtaClick: () => void }) => {
         
         <div className="hidden md:flex items-center gap-10">
           <a href="#" className={`font-semibold hover:text-blue-500 transition-colors ${scrolled ? 'text-slate-700' : 'text-slate-200'}`}>Process</a>
-          <a href="#" className={`font-semibold hover:text-blue-500 transition-colors ${scrolled ? 'text-slate-700' : 'text-slate-200'}`}>Reviews</a>
-          <a href="#" className={`font-semibold hover:text-blue-500 transition-colors ${scrolled ? 'text-slate-700' : 'text-slate-200'}`}>Founder</a>
+          <a href="#reviews" className={`font-semibold hover:text-blue-500 transition-colors ${scrolled ? 'text-slate-700' : 'text-slate-200'}`}>Reviews</a>
+          <a href="#founder" className={`font-semibold hover:text-blue-500 transition-colors ${scrolled ? 'text-slate-700' : 'text-slate-200'}`}>Founder</a>
           <button 
             onClick={onCtaClick}
             className={`px-6 py-2 rounded-lg font-bold transition-all ${scrolled ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-white text-blue-900 hover:bg-slate-100'}`}
@@ -562,8 +408,8 @@ const Navbar = ({ onCtaClick }: { onCtaClick: () => void }) => {
         <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-xl p-6 border-t border-slate-100 animate-in slide-in-from-top duration-300">
           <div className="flex flex-col gap-6">
             <a href="#" className="text-lg font-bold text-slate-900">Process</a>
-            <a href="#" className="text-lg font-bold text-slate-900">Reviews</a>
-            <a href="#" className="text-lg font-bold text-slate-900">Founder</a>
+            <a href="#reviews" className="text-lg font-bold text-slate-900">Reviews</a>
+            <a href="#founder" className="text-lg font-bold text-slate-900">Founder</a>
             <button 
               onClick={() => { onCtaClick(); setMobileMenuOpen(false); }}
               className="w-full py-4 bg-blue-600 text-white font-bold rounded-xl"
@@ -577,43 +423,27 @@ const Navbar = ({ onCtaClick }: { onCtaClick: () => void }) => {
   );
 };
 
-const SuccessModal = ({ onClose }: { onClose: () => void }) => (
-  <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-slate-900/90 backdrop-blur-sm animate-in fade-in duration-300">
-    <div className="bg-white rounded-[3rem] p-10 md:p-16 max-w-xl w-full text-center shadow-2xl animate-in zoom-in duration-300">
-      <div className="w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-8">
-        <CheckCircle className="w-12 h-12" />
-      </div>
-      <h2 className="text-3xl font-black text-slate-900 mb-4">Request Received!</h2>
-      <p className="text-lg text-slate-600 mb-10">Mukul or one of our senior consultants will review your profile and reach out within 24 hours.</p>
-      
-      <div className="space-y-4">
-        <a 
-          href="https://wa.me/911234567890?text=Hi, I just submitted my profile evaluation on The SHER website. Looking forward to hearing from you!" 
-          target="_blank"
-          className="flex items-center justify-center gap-3 w-full py-4 bg-[#25D366] text-white font-bold rounded-2xl hover:bg-[#128C7E] transition-all shadow-lg"
-        >
-          <MessageCircle className="w-6 h-6" /> Talk to Us on WhatsApp
-        </a>
-        <button 
-          onClick={onClose}
-          className="w-full py-4 bg-slate-100 text-slate-600 font-bold rounded-2xl hover:bg-slate-200 transition-all"
-        >
-          Close
-        </button>
-      </div>
-      <p className="mt-6 text-sm text-slate-400">An email confirmation has been sent to your inbox.</p>
-    </div>
-  </div>
-);
-
 export default function App() {
-  const [showSuccess, setShowSuccess] = useState(false);
   const [showStickyCta, setShowStickyCta] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setShowStickyCta(window.scrollY > 800);
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    // Listen for Tally form submission
+    const handleTallySubmit = (event: MessageEvent) => {
+      if (event.data && event.data.type === 'tally:form:submit') {
+        setIsSubmitted(true);
+      }
+    };
+
+    window.addEventListener('message', handleTallySubmit);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('message', handleTallySubmit);
+    };
   }, []);
 
   const scrollToForm = () => {
@@ -628,12 +458,17 @@ export default function App() {
       <main>
         <Hero onCtaClick={scrollToForm} />
         <AuthorityBar />
-        <PainSection />
-        <HowItWorks />
         
-        <section className="bg-slate-50 pb-24 relative">
+        <section className="py-24 bg-slate-50">
           <div className="container mx-auto px-6">
-            <MultiStepForm onComplete={() => setShowSuccess(true)} />
+            <div className="max-w-3xl mb-16 mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Study Abroad is Complex. <span className="text-blue-600">The Route Doesn't Have to Be.</span></h2>
+              <p className="text-lg text-slate-600">Complete the form below to initiate your official profile evaluation.</p>
+            </div>
+            
+            <div className="relative">
+              <TallyForm />
+            </div>
           </div>
         </section>
 
@@ -659,7 +494,31 @@ export default function App() {
         </div>
       </div>
 
-      {showSuccess && <SuccessModal onClose={() => setShowSuccess(false)} />}
+      {isSubmitted && <SuccessModal onClose={() => setIsSubmitted(false)} />}
     </div>
   );
 }
+
+const SuccessStories = () => (
+  <section className="py-24 bg-white overflow-hidden" id="reviews">
+    <div className="container mx-auto px-6">
+      <div className="text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Success Stories That Speak for Themselves</h2>
+        <p className="text-lg text-slate-600 max-w-2xl mx-auto">From small towns to global metropolises, we've helped Indian students reach the world's most prestigious institutions.</p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {SUCCESS_STORIES.map((story) => (
+          <div key={story.id} className="group relative bg-slate-900 rounded-3xl overflow-hidden aspect-[4/5] shadow-xl">
+            <img src={story.imageUrl} alt={story.name} className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+            <div className="absolute bottom-0 left-0 p-8 w-full">
+              <p className="text-blue-400 font-bold mb-1">{story.degree}</p>
+              <h3 className="text-2xl font-bold text-white mb-1">{story.name}</h3>
+              <p className="text-slate-300">{story.university}, {story.country}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
