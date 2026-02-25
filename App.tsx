@@ -21,52 +21,52 @@ import { SUCCESS_STORIES, FAQS } from './constants';
 // Components
 const Hero = ({ onCtaClick }: { onCtaClick: () => void }) => (
   <section className="relative pt-32 pb-20 md:pt-48 md:pb-44 overflow-hidden bg-slate-900 text-white">
-    {/* Background Image Layer: Featuring King's College Cambridge */}
+    {/* Background Image Layer: Exact daylight shot of King's College Cambridge */}
     <div className="absolute inset-0 z-0">
       <img 
         src="https://images.unsplash.com/photo-1543185377-b75671bc8741?auto=format&fit=crop&q=80&w=2000" 
         alt="King's College Cambridge" 
-        className="w-full h-full object-cover object-[center_35%] scale-105"
+        className="w-full h-full object-cover object-[center_40%] scale-100"
       />
       
-      {/* Blending Overlay: Multi-layer gradient for sophisticated blending */}
-      {/* 1. Deep blue tint for brand identity */}
-      <div className="absolute inset-0 bg-blue-900/40 mix-blend-multiply"></div>
-      {/* 2. Top-down fade for navbar integration */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-transparent to-slate-900/60"></div>
-      {/* 3. Radial focus to highlight center text while keeping architecture details */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(30,58,138,0.7)_0%,_rgba(15,23,42,0.9)_100%)] opacity-80"></div>
+      {/* Refined Blending Strategy: 
+          We use a subtle radial gradient and a bottom-up fade. 
+          This keeps the sky and architecture bright while darkening the area behind text for legibility.
+      */}
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-80"></div>
+      <div className="absolute inset-0 bg-blue-900/20 mix-blend-overlay"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-900/60 via-transparent to-slate-900/60"></div>
     </div>
 
     <div className="container mx-auto px-6 relative z-10">
       <div className="max-w-4xl mx-auto text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 backdrop-blur-md rounded-full text-blue-300 font-bold text-sm mb-8 border border-blue-500/30">
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600/30 backdrop-blur-md rounded-full text-white font-bold text-sm mb-8 border border-white/20 shadow-lg">
           <Award className="w-4 h-4" /> OFFICIAL ADMISSIONS PARTNER
         </div>
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight drop-shadow-sm">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
           Get Accepted to <span className="text-blue-400">Top Global Universities</span> with Structured Guidance
         </h1>
-        <p className="text-lg md:text-2xl text-slate-100 mb-10 max-w-2xl mx-auto drop-shadow-sm font-medium">
+        <p className="text-lg md:text-2xl text-white mb-10 max-w-2xl mx-auto drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] font-semibold">
           We provide the roadmap for your international career. From profile strengthening to visa approvals, The SHER is your trusted route to UK, Canada, USA, and Europe.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <button 
             onClick={onCtaClick}
-            className="w-full sm:w-auto px-10 py-5 bg-blue-600 hover:bg-blue-500 text-white text-lg font-bold rounded-2xl transition-all shadow-xl hover:shadow-blue-500/40 flex items-center justify-center gap-2 group"
+            className="w-full sm:w-auto px-10 py-5 bg-blue-600 hover:bg-blue-500 text-white text-lg font-bold rounded-2xl transition-all shadow-2xl hover:shadow-blue-500/50 flex items-center justify-center gap-2 group border border-blue-400/30"
           >
             Check My Eligibility <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
           <button 
             onClick={onCtaClick}
-            className="w-full sm:w-auto px-10 py-5 bg-white/10 hover:bg-white/20 text-white text-lg font-bold rounded-2xl transition-all backdrop-blur-md border border-white/20"
+            className="w-full sm:w-auto px-10 py-5 bg-white/10 hover:bg-white/20 text-white text-lg font-bold rounded-2xl transition-all backdrop-blur-md border border-white/30"
           >
             Book Profile Evaluation
           </button>
         </div>
-        <div className="mt-14 flex flex-wrap justify-center gap-6 opacity-90">
-          <div className="flex items-center gap-2 font-semibold text-white bg-slate-900/40 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/10"><CheckCircle className="w-5 h-5 text-blue-400" /> <span>Visa Support</span></div>
-          <div className="flex items-center gap-2 font-semibold text-white bg-slate-900/40 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/10"><CheckCircle className="w-5 h-5 text-blue-400" /> <span>University Selection</span></div>
-          <div className="flex items-center gap-2 font-semibold text-white bg-slate-900/40 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/10"><CheckCircle className="w-5 h-5 text-blue-400" /> <span>SOP Assistance</span></div>
+        <div className="mt-14 flex flex-wrap justify-center gap-6">
+          <div className="flex items-center gap-2 font-bold text-white bg-slate-900/60 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 shadow-xl"><CheckCircle className="w-5 h-5 text-blue-400" /> <span>Visa Support</span></div>
+          <div className="flex items-center gap-2 font-bold text-white bg-slate-900/60 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 shadow-xl"><CheckCircle className="w-5 h-5 text-blue-400" /> <span>University Selection</span></div>
+          <div className="flex items-center gap-2 font-bold text-white bg-slate-900/60 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 shadow-xl"><CheckCircle className="w-5 h-5 text-blue-400" /> <span>SOP Assistance</span></div>
         </div>
       </div>
     </div>

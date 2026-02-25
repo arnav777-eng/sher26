@@ -3,7 +3,14 @@ import React from 'react';
 import { SuccessStory, FAQItem } from './types';
 
 export const SUCCESS_STORIES: SuccessStory[] = [
-  { id: '1', name: 'Arjun Mehta', degree: 'MSc Data Science', university: 'University College London', country: 'UK', imageUrl: 'https://picsum.photos/seed/stu1/400/400' },
+  { 
+    id: '1', 
+    name: 'Arjun Mehta', 
+    degree: 'MSc Data Science', 
+    university: 'University College London', 
+    country: 'UK', 
+    imageUrl: 'https://images.unsplash.com/photo-1543185377-b75671bc8741?auto=format&fit=crop&q=80&w=800' 
+  },
   { id: '2', name: 'Priya Sharma', degree: 'BEng Computer Science', university: 'University of Toronto', country: 'Canada', imageUrl: 'https://picsum.photos/seed/stu2/400/400' },
   { id: '3', name: 'Rohan Gupta', degree: 'MBA', university: 'Technical University of Munich', country: 'Germany', imageUrl: 'https://picsum.photos/seed/stu3/400/400' },
   { id: '4', name: 'Ananya Iyer', degree: 'MA Digital Media', university: 'Monash University', country: 'Australia', imageUrl: 'https://picsum.photos/seed/stu4/400/400' },
